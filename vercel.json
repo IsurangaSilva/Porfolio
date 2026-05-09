@@ -10,10 +10,7 @@
     }
   },
   "env": {
-    "NEXT_PUBLIC_SITE_URL": {
-      "value": "https://oushadhee-portfolio.vercel.app",
-      "description": "The public URL of your site"
-    }
+    "NEXT_PUBLIC_SITE_URL": "https://oushadhee-portfolio.vercel.app"
   },
   "headers": [
     {
