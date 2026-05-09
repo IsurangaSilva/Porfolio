@@ -2,6 +2,8 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
+import Socials from './Socials';
 
 export default function Hero() {
   const roles = ['MERN & Laravel Developer', 'Software Engineer Intern', 'AI & Full-Stack Engineer'];
@@ -35,54 +37,64 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-dark via-slate-900 to-slate-800 dark:bg-dark py-24 md:py-32 min-h-screen flex items-center">
+    <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 dark:bg-dark py-24 md:py-32 min-h-screen flex items-center">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
-          className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-cyan-500/30 via-blue-500/20 to-transparent rounded-full mix-blend-screen filter blur-3xl"
+          className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-purple-500/40 via-pink-500/30 to-transparent rounded-full mix-blend-screen filter blur-3xl"
           animate={{ x: mousePosition.x * 0.05, y: mousePosition.y * 0.05 }}
           transition={{ type: "tween", ease: "easeOut" }}
         ></motion.div>
         <motion.div 
-          className="absolute -bottom-32 right-1/3 w-96 h-96 bg-gradient-to-br from-purple-500/30 via-pink-500/20 to-transparent rounded-full mix-blend-screen filter blur-3xl"
+          className="absolute -bottom-32 right-1/3 w-96 h-96 bg-gradient-to-br from-cyan-500/40 via-blue-500/30 to-transparent rounded-full mix-blend-screen filter blur-3xl"
           animate={{ x: -mousePosition.x * 0.05, y: -mousePosition.y * 0.05 }}
           transition={{ type: "tween", ease: "easeOut" }}
         ></motion.div>
         <motion.div 
-          className="absolute top-1/2 -left-32 w-80 h-80 bg-gradient-to-br from-green-500/20 via-teal-500/10 to-transparent rounded-full mix-blend-screen filter blur-3xl"
+          className="absolute top-1/2 -left-32 w-80 h-80 bg-gradient-to-br from-pink-500/30 via-purple-500/20 to-transparent rounded-full mix-blend-screen filter blur-3xl"
           animate={{ y: [0, 30, 0] }}
           transition={{ duration: 6, repeat: Infinity }}
         ></motion.div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
+        {/* Name Section at Top */}
         <motion.div 
-          className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
+          <motion.h1 
+            className="text-6xl md:text-7xl lg:text-8xl font-extrabold leading-tight bg-gradient-to-br from-white via-cyan-200 to-blue-300 bg-clip-text text-transparent drop-shadow-lg mb-8"
+            variants={item}
+          >
+            Oushadhee<br />Wickramasinghe
+          </motion.h1>
+          
+          <motion.div 
+            className="inline-block"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="px-4 py-2.5 rounded-full bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-cyan-500/20 border border-purple-400/40 backdrop-blur-md">
+              <p className="text-sm font-semibold bg-gradient-to-r from-purple-300 via-pink-300 to-cyan-300 bg-clip-text text-transparent">
+                ✨ Welcome to my Creative Portfolio
+              </p>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Main Content Grid */}
+        <motion.div 
+          className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32 items-start"
           variants={container}
           initial="hidden"
           animate="show"
         >
           {/* Left Content */}
-          <motion.div className="space-y-6" variants={item}>
-            <motion.div 
-              className="inline-block"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 border border-cyan-500/40 backdrop-blur-md">
-                <p className="text-sm font-semibold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  Welcome to my creative portfolio
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.h1 
-              className="text-6xl md:text-7xl font-extrabold leading-tight bg-gradient-to-br from-white via-cyan-200 to-blue-300 bg-clip-text text-transparent drop-shadow-lg"
-              variants={item}
-            >
-              Oushadhee<br />Wickramasinghe
-            </motion.h1>
+          <motion.div className="space-y-8" variants={item}>
 
             <motion.div className="space-y-2" variants={item}>
               <p className="text-lg text-cyan-300 font-medium">0740699786 · Malabe, Colombo, Sri Lanka</p>
@@ -141,6 +153,12 @@ export default function Hero() {
               </motion.a>
             </motion.div>
 
+            {/* Social Links */}
+            <motion.div className="flex items-center gap-4 pt-4" variants={item}>
+              <p className="text-gray-400">Follow:</p>
+              <Socials />
+            </motion.div>
+
             {/* Stats with animation */}
             <motion.div className="flex gap-8 pt-8" variants={item}>
               {[
@@ -168,7 +186,7 @@ export default function Hero() {
             className="flex justify-center lg:justify-end"
           >
             <motion.div
-              className="relative w-full max-w-md"
+              className="relative w-full max-w-lg"
               animate={{ y: [0, -15, 0] }}
               transition={{ duration: 4, repeat: Infinity }}
             >
@@ -180,16 +198,12 @@ export default function Hero() {
                 
                 <div className="relative w-full h-full rounded-3xl overflow-hidden">
                   <Image
-                    src="/oushadhee-profile.jpg"
+                    src="/WhatsApp Image 2026-05-09 at 8.22.02 AM.jpeg"
                     alt="Oushadhee Wickramasinghe"
                     width={450}
                     height={550}
                     priority
-                    className="w-full h-full object-cover rounded-2xl"
-                    onError={(e) => {
-                      // Fallback to placeholder
-                      e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22450%22 height=%22550%22%3E%3Crect fill=%22%231e293b%22 width=%22450%22 height=%22550%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%2394a3b8%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3EProfile Image%3C/text%3E%3C/svg%3E';
-                    }}
+                    className="w-full h-full object-cover rounded-2xl filter brightness-110"
                   />
                 </div>
               </div>

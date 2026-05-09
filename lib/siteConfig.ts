@@ -1,4 +1,4 @@
 export const site = {
-  title: 'Your Name',
-  description: 'Personal portfolio built with Next.js'
+  title: 'Oushadhee Wickramasinghe - Full-Stack Developer & AI Enthusiast',
+  description: 'Creative portfolio of Oushadhee Wickramasinghe showcasing full-stack development, AI/ML projects, and innovative solutions.'
 };
