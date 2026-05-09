@@ -1,0 +1,35 @@
+# Vercel Build Optimization
+# Ignore files that are not needed for builds
+
+# Version control
+.git
+.gitignore
+
+# Documentation
+*.md
+!README.md
+
+# Testing
+tests/
+*.test.ts
+*.test.tsx
+jest.config.js
+jest.setup.ts
+coverage/
+
+# Development
+.next/
+.vercel/
+.eslintignore
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
