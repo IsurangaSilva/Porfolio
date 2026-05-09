@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #__next {
+  height: 100%;
+}
+
+.container {
+  max-width: 1100px;
+}
+
+.skip-link:focus {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  background: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+:root {
+  --primary: #06b6d4;
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+body {
+  padding-top: 68px; /* space for fixed navbar */
+}
